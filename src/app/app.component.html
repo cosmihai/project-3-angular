@@ -1,5 +1,38 @@
+<header id="site-header">
+  <div class="container">
 
+    <h1 class="site-title">
+      <a [routerLink]="['/']"> Home
+      </a>
+    </h1>
 
-<router-outlet></router-outlet>
+    <nav class="site-nav">
+      ...
+    </nav>
 
+    <div [ngClass]="{'is-user': user, 'is-anon': anon}">
+      <div *ngIf="loading">
+        <span class="username text">loading...</span>
+      </div>
+      <div *ngIf="!loading && !!user">
+        <a [routerLink]="['/users', user._id]">{{user.username}}</a>
+        <a (click)="logout()">logout</a>
+      </div>
+      <div *ngIf="!loading && anon">
+        <a [routerLink]="['/login']">login</a>
+        <a [routerLink]="['/signup']">signup</a>
+      </div>
+    </div>
 
+  </div>
+</header>
+
+<div id="site-main" class="container">
+  <router-outlet></router-outlet>
+</div>
+
+<footer id="site-footer">
+  <div class="container">
+    nice footer
+  </div>
+</footer>

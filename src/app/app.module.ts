@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+
 // ---PAGES-------------------------------
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SpiritsPageComponent } from './pages/spirits-page/spirits-page.component';
@@ -21,8 +23,27 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 // ---COMPONENTS-------------------------------------
 import { CocktailItemComponent } from './components/cocktail-item/cocktail-item.component';
 
+// ----services
+import { AuthService } from './services/auth.service';
+
+// // -- guards
+// import { RequireAnonGuardService } from './guards/require-anon-guard.service';
+// import { RequireUserGuardService } from './guards/require-user-guard.service';
+// import { InitAuthGuardService } from './guards/init-auth-guard.service';
+
+
 const routes: Routes = [
-  { path: '', component: HomePageComponent}
+  { path: '', component: HomePageComponent},
+  { path: 'spirits', component: SpiritsPageComponent},
+  { path: 'cocktails', component: CocktailsListPageComponent},
+  { path: 'cocktails/create', component: CocktailsCreatePageComponent},
+  { path: 'cocktails/:id', component: CocktailDetailPageComponent},
+  { path: 'cocktails/:id/edit', component: CocktailEditPageComponent},
+  { path: 'users', component: UsersPageComponent},
+  { path: 'users/:id', component: UserDetailPageComponent},
+  { path: 'users/:id/edit', component: UserEditPageComponent},
+  { path: 'signup', component: SignupPageComponent},
+  { path: 'login', component: LoginPageComponent},
 ];
 
 @NgModule({
@@ -44,9 +65,11 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
