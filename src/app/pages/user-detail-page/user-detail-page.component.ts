@@ -10,9 +10,9 @@ import { AuthService } from '../../services/auth.service';
 })
 export class UserDetailPageComponent implements OnInit {
 
-  user: Object;
+  user: Object = {};
   idUser: string;
-  currentUser: Object;
+  currentUser: Object ={};
 
   constructor(
     private userService: UserService,
@@ -28,13 +28,14 @@ export class UserDetailPageComponent implements OnInit {
         .then((data) => {
           this.user = data
         })
+        this.currentUser=this.authService.getUser();
     });
 
-    this.currentUser=this.authService.getUser();
+
   }
 
-  onClickEditButton(){
-    this.router.navigate(['users/:id/edit'])
+  onClickEditButton(id){
+    this.router.navigate([`users/${id}/edit`])
   }
 
 }

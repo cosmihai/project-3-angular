@@ -71,7 +71,7 @@ const routes: Routes = [
     HttpClientModule
   ],
   providers: [
-    UserService
+    UserService,
     AuthService,
     InitAuthGuardService,
     RequireAnonGuardService,

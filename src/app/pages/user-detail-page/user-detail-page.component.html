@@ -1,8 +1,10 @@
 
 <ng-container *ngIf="user">
-<h3>
-  details of user: {{user.username}}
-</h3>
-<div *ngIf="currentUser._id===user._id">
-  <button (click)="onClickEditButton()">Edit profile</button>
-</div>
+  <h3>details of user: {{user.username}}</h3>
+  <img [src]="user.pictureUrl" alt="lol" height="100px">
+</ng-container>
+  <ng-container *ngIf="currentUser">
+  <div *ngIf="currentUser._id===user._id">
+    <button (click)="onClickEditButton(currentUser._id)">Edit profile</button>
+  </div>
+</ng-container>
