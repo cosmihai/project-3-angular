@@ -1,13 +1,15 @@
 <header id="site-header">
   <div class="container">
 
-    <h1 class="site-title">
-      <a [routerLink]="['/']"> Home
-      </a>
-    </h1>
-
     <nav class="site-nav">
-      ...
+
+      <h3 class="site-title">
+        <a [routerLink]="['/']">Home</a>
+        <a [routerLink]="['/spirits']">Spirits</a>
+        <a [routerLink]="['/cocktails']">Cocktails</a>
+        <a [routerLink]="['/users']">Users</a>
+      </h3>
+
     </nav>
 
     <div [ngClass]="{'is-user': user, 'is-anon': anon}">
@@ -33,6 +35,6 @@
 
 <footer id="site-footer">
   <div class="container">
-    nice footer
+    &copy;mihai costantea 2018
   </div>
 </footer>

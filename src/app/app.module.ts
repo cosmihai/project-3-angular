@@ -25,6 +25,7 @@ import { CocktailItemComponent } from './components/cocktail-item/cocktail-item.
 
 // ----services
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 
 // -- guards
 import { RequireAnonGuardService } from './guards/require-anon-guard.service';
@@ -34,14 +35,14 @@ import { InitAuthGuardService } from './guards/init-auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, canActivate: [InitAuthGuardService]},
-  { path: 'spirits', component: SpiritsPageComponent},
-  { path: 'cocktails', component: CocktailsListPageComponent},
+  { path: 'spirits', component: SpiritsPageComponent, canActivate: [InitAuthGuardService]},
+  { path: 'cocktails', component: CocktailsListPageComponent, canActivate: [InitAuthGuardService]},
   { path: 'cocktails/create', component: CocktailsCreatePageComponent},
-  { path: 'cocktails/:id', component: CocktailDetailPageComponent},
+  { path: 'cocktails/:id', component: CocktailDetailPageComponent, canActivate: [InitAuthGuardService]},
   { path: 'cocktails/:id/edit', component: CocktailEditPageComponent},
-  { path: 'users', component: UsersPageComponent},
-  { path: 'users/:id', component: UserDetailPageComponent},
-  { path: 'users/:id/edit', component: UserEditPageComponent},
+  { path: 'users', component: UsersPageComponent, canActivate: [InitAuthGuardService]},
+  { path: 'users/:id', component: UserDetailPageComponent, canActivate: [InitAuthGuardService]},
+  { path: 'users/:id/edit', component: UserEditPageComponent, canActivate: [RequireUserGuardService]},
   { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuardService]},
   { path: 'login', component: LoginPageComponent, canActivate: [RequireAnonGuardService]},
 ];
@@ -70,6 +71,7 @@ const routes: Routes = [
     HttpClientModule
   ],
   providers: [
+    UserService
     AuthService,
     InitAuthGuardService,
     RequireAnonGuardService,
