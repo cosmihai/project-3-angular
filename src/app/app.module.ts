@@ -26,14 +26,14 @@ import { CocktailItemComponent } from './components/cocktail-item/cocktail-item.
 // ----services
 import { AuthService } from './services/auth.service';
 
-// // -- guards
-// import { RequireAnonGuardService } from './guards/require-anon-guard.service';
-// import { RequireUserGuardService } from './guards/require-user-guard.service';
-// import { InitAuthGuardService } from './guards/init-auth-guard.service';
+// -- guards
+import { RequireAnonGuardService } from './guards/require-anon-guard.service';
+import { RequireUserGuardService } from './guards/require-user-guard.service';
+import { InitAuthGuardService } from './guards/init-auth-guard.service';
 
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent},
+  { path: '', component: HomePageComponent, canActivate: [InitAuthGuardService]},
   { path: 'spirits', component: SpiritsPageComponent},
   { path: 'cocktails', component: CocktailsListPageComponent},
   { path: 'cocktails/create', component: CocktailsCreatePageComponent},
@@ -42,8 +42,8 @@ const routes: Routes = [
   { path: 'users', component: UsersPageComponent},
   { path: 'users/:id', component: UserDetailPageComponent},
   { path: 'users/:id/edit', component: UserEditPageComponent},
-  { path: 'signup', component: SignupPageComponent},
-  { path: 'login', component: LoginPageComponent},
+  { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuardService]},
+  { path: 'login', component: LoginPageComponent, canActivate: [RequireAnonGuardService]},
 ];
 
 @NgModule({
@@ -69,7 +69,11 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    InitAuthGuardService,
+    RequireAnonGuardService,
+    RequireUserGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
