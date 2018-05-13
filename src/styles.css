@@ -1,3 +1,16 @@
+colors {
+  color: #081E00;
+  color: #235910;
+  color: #659158;
+  color: #C1B7AC;
+  color: #F4DEE0;
+}
+fonts {
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
 
 /* ---- reset ---- */
 
@@ -7,7 +20,6 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -17,8 +29,8 @@ body {
 /* ---- typography ---- */
 
 body {
-  color: #111;
-  font-family: Helvetica, Arial, sans-serif;
+  color: #081E00;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   line-height: 147%;
 }
@@ -32,31 +44,41 @@ h3 {}
 p {
   margin: 0;
 }
+a {
+  text-decoration: none;
+}
 
 
 
 /* ---- layout ---- */
 
-
-#site-header {
-  height: 20vh;
-  padding: 10px;
-  color: white;
-  background: #111;
+#main-container {
+ background-color: rgb(200, 200, 200);
 }
 
-#site-footer {
-  height: 10vh;
-  line-height: 10vh;
-  color: white;
-  background: #111;
+
+#site-header {
+  padding: 10px 50px;
+  color: E0FCFF;
+  background: linear-gradient(to top, rgb(255, 185, 185), rgb(93, 32, 53));
+  opacity: .95;
+  position: fixed;
+  width: 100%;
 }
 
 #site-main {
-  min-height: 70vh;
-  padding: 10px;
-  margin-bottom: 10px;
+  min-height: 90vh;
+  padding: 50px 10px;
+  background-color: rgb(230, 230, 230)
 }
+#site-footer {
+  height: 10vh;
+  line-height: 10vh;
+  text-shadow: #1B2A2B 1px 1px 0.5px;
+  background: linear-gradient(to bottom, rgb(255, 185, 185), rgb(93, 32, 53));
+  opacity: .9;
+}
+
 
 .container {
   margin: 0 20px;
@@ -67,17 +89,100 @@ p {
   padding-top: 20px;
 }
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 1024px;
-    margin: 0 auto;
-  }
+
+
+
+
+/* ---- components ------------------------------------------ */
+
+/* ------navegacion------- */
+
+#logo {
+  position: fixed;
+  top: 5px;
+  left: 5px;
+
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu-button {
+  /* border: 0.5px solid #E0FCFF;
+  border-radius: 5px 0 0 0; */
+  background-color: rgba(151, 157, 158, 0.2);
+  padding: 3px 7px;
+}
+.sesion-botton a, button {
+  color: rgba(20, 20, 20, 0.9);
+  font-size: 1.2em;
+}
+.sesion-botton span {
+  color:rgb(246, 0, 0);
+}
+
+.menu a button {
+  color: rgba(20, 20, 20, 0.9);
+  font-size: 1.2em;
+  cursor: pointer;
+}
+#hamburger {
+  background-color: #94CFD3;
+  border-radius: 2px;
+  padding: 2px 6px;
+  display: none;
+  cursor: pointer;
+  width: 30px;
+  font-size: 22px;
+}
+#toogle {
+  display: none;
+}
+#toogle:checked + .menu {
+  display: block;
 }
 
 
 
+/* ---------------end navegacion--------------- */
+.cocktail-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center
+}
 
-/* ---- components ---- */
+.cocktail-card {
+  border: 1px solid rgba(220, 220, 220, .8);
+  border-radius: 5px;
+  background-color: rgba(193, 183, 172, .5);
+  margin-bottom: 5px;
+  padding: 10px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+.cocktail-detail {
+  border: 1px solid rgba(220, 220, 220, .8);
+  border-radius: 5px;
+  background-color: rgba(193, 183, 172, .5);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+.info-cocktail {
+  margin-bottom: 20px;
+}
+
+.cocktail-detail h3 {
+  margin: 0;
+}
+
 
 /* -- forms -- */
 
@@ -86,11 +191,11 @@ form.is-processing {
 }
 
 form .field {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 form label {
-	display: block;
+  display: block;
 	margin-bottom: 10px;
 	font-style: bold;
 }
@@ -123,4 +228,68 @@ form .validation {
 
 form .field.has-error input {
 	border: 1px solid  red;
+}
+
+.search-form {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.search-form label {
+  display: inline;
+}
+.search-form select {
+  display: inline;
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+  .cocktail-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .cocktail-detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.info-cocktail {
+  width: 50%;
+}
+.photo-cocktail{
+  width: 20%;
+}
+
+}
+@media only screen and (max-width: 650px) {
+
+  #hamburger {
+    display: block;
+    cursor: pointer;
+  }
+  .menu {
+    text-align: center;
+    width: 100%;
+    display: none;
+  }
+  .menu a {
+    display: block
+  }
+  .menu a button {
+    width: 100%;
+  }
+  #toogle {
+    display: none;
+  }
+  .sesion-botton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .nav-bar {
+    display: block;
+  }
 }

@@ -1,18 +1,20 @@
 <header id="site-header">
-  <div class="container">
+  <div class="container nav-bar">
 
     <nav class="site-nav">
+      <label for="toogle" id="hamburger" >&#9776;</label>
+      <img id="logo" src="http://www.clker.com/cliparts/P/y/1/w/m/K/purple-martini-glass-hi.png" alt="lol" height="40px">
+      <input type="checkbox" id="toogle"/>
 
-      <h3 class="site-title">
-        <a [routerLink]="['/']">Home</a>
-        <a [routerLink]="['/spirits']">Spirits</a>
-        <a [routerLink]="['/cocktails']">Cocktails</a>
-        <a [routerLink]="['/users']">Users</a>
-      </h3>
+      <div class="site-title menu">
+        <a [routerLink]="['/']"><button class="menu-button">Home</button></a>
+        <a [routerLink]="['/spirits']"><button class="menu-button">Spirits</button> </a>
+        <a [routerLink]="['/cocktails']"><button class="menu-button">Cocktails</button> </a>
+        <a [routerLink]="['/users']"><button class="menu-button">Users</button> </a>
+      </div>
 
     </nav>
-
-    <div [ngClass]="{'is-user': user, 'is-anon': anon}">
+    <div class="sesion-botton" [ngClass]="{'is-user': user, 'is-anon': anon}">
       <div *ngIf="loading">
         <span class="username text">loading...</span>
       </div>
@@ -21,7 +23,7 @@
         <button (click)="logout()">logout</button>
       </div>
       <div *ngIf="!loading && anon">
-        <a [routerLink]="['/login']">login</a>
+        <a [routerLink]="['/login']">login</a> <span>or</span>
         <a [routerLink]="['/signup']">signup</a>
       </div>
     </div>

@@ -1,3 +1,32 @@
-<p>
-  cocktails-list-page works!
-</p>
+
+
+
+
+<div >
+  <form class="search-form">
+    <label for="ingredient">Search by ingredient:</label>
+    <select name="ingredient">
+      <option value="Vodka">Vodka</option>
+      <option value="Gin">Gin</option>
+      <option value="White rum">White rum</option>
+      <option value="Dark rum">Dark rum</option>
+      <option value="Whiskey">Whiskey</option>
+      <option value="Cognac">Cognac</option>
+      <option value="Triple sec">Triple sec</option>
+      <option value="Tequila">Tequila</option>
+      <option value="Vermouth">Vermouth</option>
+      <option value="Cachaca">Cachaca</option>
+      <option value="Aperol">Aperol</option>
+      <option value="DiSaronno">DiSaronno</option>
+      <option value="Galliano">Galliano</option>
+      <option value="Prosecco">Prosecco</option>
+    </select>
+  </form>
+  <div class="cocktail-list">
+    <section *ngFor="let cocktail of cocktails">
+      <a [routerLink]="[cocktail._id]">
+        <app-cocktail-item [cocktail]="cocktail"></app-cocktail-item>
+      </a>
+    </section>
+  </div>
+</div>

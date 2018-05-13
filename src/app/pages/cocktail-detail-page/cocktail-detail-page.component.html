@@ -1,3 +1,20 @@
-<p>
-  cocktail-detail-page works!
-</p>
+<div class="cocktail-detail">
+  <div class="info-cocktail">
+    <h3>{{cocktail.name}}</h3>
+    <p *ngIf="cocktail.isIBA"><em>IBA Cocktail</em> </p>
+    <p>Glass type: {{cocktail.glass}}</p>
+    <p *ngIf="cocktail.category">Category: {{cocktail.category}}</p>
+    <ul>
+      <li *ngFor="let ingredient of cocktail.ingredients">
+        {{ingredient.amount}}
+        {{ingredient.unit}}
+        {{ingredient.ingredient}}
+      </li>
+    </ul>
+    <p>{{cocktail.preparation}}</p>
+  </div>
+  <div class="photo-cocktail">
+    <img [src]="cocktail.imageUrl" alt="booze">
+  </div>
+</div>
+<!-- <img src="http://www.japaneseknifecompany.com/sites/default/files/imagecache/product-large/UB4041-Teardrop-Bar-Spoon-300mm-v270.png" alt="lol" width="500px"> -->

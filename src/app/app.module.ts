@@ -26,6 +26,7 @@ import { CocktailItemComponent } from './components/cocktail-item/cocktail-item.
 // ----services
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
+import { CocktailService } from './services/cocktail.service';
 
 // -- guards
 import { RequireAnonGuardService } from './guards/require-anon-guard.service';
@@ -71,6 +72,7 @@ const routes: Routes = [
     HttpClientModule
   ],
   providers: [
+    CocktailService,
     UserService,
     AuthService,
     InitAuthGuardService,
