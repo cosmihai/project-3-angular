@@ -31,7 +31,7 @@ export class UserDetailPageComponent implements OnInit {
         this.currentUser=this.authService.getUser();
     });
 
-
+    console.log(this.user)
   }
 
   onClickEditButton(id){

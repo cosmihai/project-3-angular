@@ -31,4 +31,12 @@ export class UserService {
       .toPromise();
   }
 
+  edit(user): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.put(`${this.baseUrl}/users/${user._id}/edit`, user, options)
+      .toPromise();
+  }
+
 }

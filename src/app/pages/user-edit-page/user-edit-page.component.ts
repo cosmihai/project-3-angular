@@ -37,4 +37,12 @@ export class UserEditPageComponent implements OnInit {
 
   }
 
+  submitForm(form) {
+    this.userService.edit(this.user)
+      .then((data) => {
+        this.user = data;
+        this.router.navigate(['/users', this.user._id]);
+      })
+  }
+
 }

@@ -1,14 +1,14 @@
-colors {
-  color: #081E00;
-  color: #235910;
-  color: #659158;
-  color: #C1B7AC;
-  color: #F4DEE0;
+/* colors {
+  font: rgb(20, 20, 30);
+  main-container: rgb(240, 240, 255);
+  head-foot: linear-gradient(to top, rgb(255, 221, 221), rgb(255, 200, 200));
+  borders: 1px solid rgba(144, 142, 142, 0.4);
+  button-color: rgba(151, 157, 158, 0.4)
 }
 fonts {
   font-family: 'Roboto', sans-serif;
   font-family: 'Open Sans', sans-serif;
-}
+} */
 
 
 
@@ -29,7 +29,7 @@ body {
 /* ---- typography ---- */
 
 body {
-  color: #081E00;
+  color: rgb(20, 20, 30);
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   line-height: 147%;
@@ -53,29 +53,31 @@ a {
 /* ---- layout ---- */
 
 #main-container {
- background-color: rgb(200, 200, 200);
+ background-color: rgb(240, 240, 255);
 }
 
 
 #site-header {
   padding: 10px 50px;
-  color: E0FCFF;
-  background: linear-gradient(to top, rgb(255, 185, 185), rgb(93, 32, 53));
+  color: #E0FCFF;
+  background: linear-gradient(to top, rgb(255, 221, 221), rgb(255, 200, 200));
+  border-bottom: 1px solid rgba(144, 142, 142, 0.4);
   opacity: .95;
   position: fixed;
+  z-index: 1;
   width: 100%;
 }
 
 #site-main {
   min-height: 90vh;
-  padding: 50px 10px;
-  background-color: rgb(230, 230, 230)
+  padding: 70px 10px;
+  background-color: rgb(225, 225, 225)
 }
 #site-footer {
   height: 10vh;
   line-height: 10vh;
-  text-shadow: #1B2A2B 1px 1px 0.5px;
-  background: linear-gradient(to bottom, rgb(255, 185, 185), rgb(93, 32, 53));
+  background: linear-gradient(to bottom, rgb(255, 221, 221), rgb(255, 200, 200));
+  border-top: 1px solid rgba(144, 142, 142, 0.4);
   opacity: .9;
 }
 
@@ -112,11 +114,12 @@ a {
 .menu-button {
   /* border: 0.5px solid #E0FCFF;
   border-radius: 5px 0 0 0; */
-  background-color: rgba(151, 157, 158, 0.2);
+  background-color: rgba(151, 157, 158, 0.4);
   padding: 3px 7px;
+  cursor: pointer;
 }
 .sesion-botton a, button {
-  color: rgba(20, 20, 20, 0.9);
+  color: rgb(20, 20, 30);
   font-size: 1.2em;
 }
 .sesion-botton span {
@@ -124,12 +127,12 @@ a {
 }
 
 .menu a button {
-  color: rgba(20, 20, 20, 0.9);
+  color: rgb(20, 20, 30);
   font-size: 1.2em;
   cursor: pointer;
 }
 #hamburger {
-  background-color: #94CFD3;
+  background-color:rgba(151, 157, 158, 0.4);
   border-radius: 2px;
   padding: 2px 6px;
   display: none;
@@ -155,10 +158,10 @@ a {
 }
 
 .cocktail-card {
-  border: 1px solid rgba(220, 220, 220, .8);
+  border: 1px solid rgba(144, 142, 142, 0.4);
   border-radius: 5px;
-  background-color: rgba(193, 183, 172, .5);
-  margin-bottom: 5px;
+  background: linear-gradient(to top, rgb(255, 231, 231), rgb(255, 215, 229));
+  margin: 0px 5px 10px 5px;
   padding: 10px;
   width: 200px;
   display: flex;
@@ -166,14 +169,22 @@ a {
   align-items: center
 }
 .cocktail-detail {
-  border: 1px solid rgba(220, 220, 220, .8);
+  border: 1px solid rgba(144, 142, 142, 0.4);
   border-radius: 5px;
-  background-color: rgba(193, 183, 172, .5);
+  background: linear-gradient(to top, rgb(255, 231, 231), rgb(255, 215, 229));
   padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 5px;
+}
+.bar-spoon-h.rotate{
+  width: 100%;
+  transform: rotate(180deg);
+}
+
+.bar-spoon-h{
+  width: 100%;
 }
 .info-cocktail {
   margin-bottom: 20px;
@@ -182,9 +193,34 @@ a {
 .cocktail-detail h3 {
   margin: 0;
 }
+/* -----------users----------- */
+.user-detail{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-img {
+  width: 100px
+}
+
 
 
 /* -- forms -- */
+
+.form-box {
+  max-width: 250px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid rgba(144, 142, 142, 0.4);
+  border-radius: 5px;
+  background: linear-gradient(to top, rgb(255, 221, 221), rgb(255, 200, 200));
+  opacity: .8;
+}
+.image-centered{
+  display: block;
+  width: 20%;
+  margin: 0 auto;
+}
 
 form.is-processing {
 	opacity: 0.5;
@@ -213,7 +249,7 @@ form .submit button {
   padding: 5px 20px;
   text-align: center;
   font-size: 16px;
-  background-color: cyan;
+  background-color: rgba(151, 157, 158, 0.4);
   cursor: pointer;
 }
 
@@ -240,9 +276,16 @@ form .field.has-error input {
 .search-form select {
   display: inline;
 }
-@media (min-width: 768px) {
+
+
+
+
+
+
+/* ------------@media----------------------- */
+@media (min-width: 600px) {
   .container {
-    max-width: 768px;
+    max-width: 1024px;
     margin: 0 auto;
   }
   .cocktail-list {

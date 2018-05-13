@@ -3,14 +3,14 @@
 
     <nav class="site-nav">
       <label for="toogle" id="hamburger" >&#9776;</label>
-      <img id="logo" src="http://www.clker.com/cliparts/P/y/1/w/m/K/purple-martini-glass-hi.png" alt="lol" height="40px">
+      <img id="logo" src="../assets/images/purple-swirl-cocktail-hi.png" alt="lol" height="40px">
       <input type="checkbox" id="toogle"/>
 
       <div class="site-title menu">
         <a [routerLink]="['/']"><button class="menu-button">Home</button></a>
         <a [routerLink]="['/spirits']"><button class="menu-button">Spirits</button> </a>
         <a [routerLink]="['/cocktails']"><button class="menu-button">Cocktails</button> </a>
-        <a [routerLink]="['/users']"><button class="menu-button">Users</button> </a>
+        <a [routerLink]="['/users']"><button class="menu-button">Bartenders</button> </a>
       </div>
 
     </nav>
@@ -20,7 +20,7 @@
       </div>
       <div *ngIf="!loading && !!user">
         <a [routerLink]="['/users', user._id]">{{user.username}}</a>
-        <button (click)="logout()">logout</button>
+        <button class="menu-button" (click)="logout()">logout</button>
       </div>
       <div *ngIf="!loading && anon">
         <a [routerLink]="['/login']">login</a> <span>or</span>
@@ -34,7 +34,6 @@
 <div id="site-main" class="container">
   <router-outlet></router-outlet>
 </div>
-
 <footer id="site-footer">
   <div class="container">
     &copy;mihai costantea 2018

@@ -22,6 +22,7 @@
       <option value="Prosecco">Prosecco</option>
     </select>
   </form>
+  <hr>
   <div class="cocktail-list">
     <section *ngFor="let cocktail of cocktails">
       <a [routerLink]="[cocktail._id]">

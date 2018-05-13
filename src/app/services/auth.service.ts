@@ -65,6 +65,8 @@ export class AuthService {
       .then(() => this.setUser());
   }
 
+
+
   getUser(): any {
     return this.user;
   }
