@@ -1,11 +1,11 @@
 
 
 
-
-<div >
-  <form class="search-form">
-    <label for="ingredient">Search by ingredient:</label>
-    <select name="ingredient">
+<div class="field">
+  <div >
+    <label>Search by ingredient:</label>
+    <select [(ngModel)]="ingredient">
+      <option value="all">All</option>
       <option value="Vodka">Vodka</option>
       <option value="Gin">Gin</option>
       <option value="White rum">White rum</option>
@@ -21,10 +21,20 @@
       <option value="Galliano">Galliano</option>
       <option value="Prosecco">Prosecco</option>
     </select>
-  </form>
+    <button (click)="onClick(ingredient)" class="menu-button">Serach</button>
+  </div>
   <hr>
-  <div class="cocktail-list">
+
+  <div *ngIf="!selectivList" class="cocktail-list">
     <section *ngFor="let cocktail of cocktails">
+      <a [routerLink]="[cocktail._id]">
+        <app-cocktail-item [cocktail]="cocktail"></app-cocktail-item>
+      </a>
+    </section>
+  </div>
+
+  <div *ngIf="selectivList" class="cocktail-list">
+    <section *ngFor="let cocktail of  selectivCocktails">
       <a [routerLink]="[cocktail._id]">
         <app-cocktail-item [cocktail]="cocktail"></app-cocktail-item>
       </a>

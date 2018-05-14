@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
 export class CocktailsListPageComponent implements OnInit {
 
   cocktails: Array<any>;
+  ingredient: String;
+  selectivCocktails = [];
+  selectivList : boolean;
 
 
   constructor(
@@ -18,11 +21,31 @@ export class CocktailsListPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.selectivList = false;
+    this.ingredient = null;
     this.cocktailService.listAll()
       .then((data) => {
         this.cocktails = data;
       });
+  }
 
+  onClick(ingr) {
+    console.log(ingr)
+    if (ingr==='all') {
+      this.selectivList = false;
+    }else{
+      this.selectivCocktails =  [];
+      for(let i=0; i<this.cocktails.length; i++){
+        var cocktail = this.cocktails[i];
+        for(let j=0; j<cocktail.ingredients.length; j++){
+          var actualIngredient = cocktail.ingredients[j].ingredient;
+          if (actualIngredient===ingr){
+            this.selectivCocktails.push(cocktail);
+          }
+        }
+      }
+      this.selectivList = true;
+    }
   }
 
 }

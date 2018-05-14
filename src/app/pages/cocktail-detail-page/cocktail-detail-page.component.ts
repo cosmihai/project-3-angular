@@ -11,6 +11,7 @@ export class CocktailDetailPageComponent implements OnInit {
   cocktail: Object = {};
   idCocktail: String;
 
+
   constructor(
     private cocktailService: CocktailService,
     private activateRoute: ActivatedRoute,
