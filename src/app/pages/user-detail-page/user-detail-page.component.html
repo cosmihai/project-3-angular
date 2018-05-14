@@ -1,5 +1,5 @@
 
-<div class="form-box">
+<div class="user-box">
   <div *ngIf="currentUser">
     <h3 *ngIf="currentUser._id===user._id">My profile</h3>
     <h3 *ngIf="currentUser._id!==user._id">{{user.username}}'s profile</h3>
@@ -18,8 +18,17 @@
   <ng-container *ngIf="currentUser">
     <div *ngIf="currentUser._id===user._id">
       <button class="menu-button" (click)="onClickEditButton(currentUser._id)">Edit profile</button>
+      <a [routerLink]="['/cocktails/create']"> <button class="menu-button">Create cocktail</button> </a>
     </div>
   </ng-container>
 </div>
 
+
+<div class="cocktail-list">
+  <section *ngFor="let cocktail of cocktails">
+    <a [routerLink]="['/cocktails', cocktail._id]">
+      <app-cocktail-item [cocktail]="cocktail"></app-cocktail-item>
+    </a>
+  </section>
+</div>
 

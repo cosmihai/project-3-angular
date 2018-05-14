@@ -1,3 +1,50 @@
-<p>
-  cocktails-create-page works!
-</p>
+<div class="user-box">
+  <h4>Create your cocktail</h4>
+  <hr>
+
+  <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate>
+
+    <div class="field">
+      <label for="name">Name:</label>
+      <input type="text" name="name" [(ngModel)]="cocktail.name">
+    </div>
+    <div class="field">
+      <label for="glass">Type of glass:</label>
+      <input type="text" name="glass" [(ngModel)]="cocktail.glass">
+    </div>
+    <div class="field">
+      <label for="category">Category:</label>
+      <input type="text" name="category" [(ngModel)]="cocktail.category">
+    </div>
+    <div class="field">
+      <label for="imageUrl">Upload cocktail photo...</label>
+      <input type="text" name="imageUrl" [(ngModel)]="cocktail.imageUrl">
+    </div>
+    <div class="field">
+      <label for="garnish">Garnish:</label>
+      <input type="text" name="garnish" [(ngModel)]="cocktail.garnish">
+    </div>
+    <div class="field">
+      <label for="preparation">Preparation:</label>
+      <textarea name="preparation" [(ngModel)]="cocktail.preparation" cols="30" rows="10"></textarea>
+    </div>
+    <div class="field">
+      <label for="ingredients">Ingredients:</label>
+      <input type="text" name="unit" [(ngModel)]="cocktailIngredient.unit" placeholder="unit">
+      <input type="number" name="amount" [(ngModel)]="cocktailIngredient.amount" placeholder="amount">
+      <input type="text" name="ingredient" [(ngModel)]="cocktailIngredient.ingredient" placeholder="ingredient">
+      <input type="text" name="label" [(ngModel)]="cocktailIngredient.label" placeholder="a specific product">
+      <button type="button"(click)="addIngredient(cocktailIngredient.unit, cocktailIngredient.amount, cocktailIngredient.ingredient, cocktailIngredient.label)">+</button>
+      <p>added {{ingridientsArray.length}} ingredients</p>
+    </div>
+
+    <div class="field submit">
+      <button class="menu-button" type="submit" [disabled]="processing">Submit</button>
+      <div *ngIf="feedbackEnabled && form.invalid">
+        <p class="validation">there are errors in the form, please review the fields</p>
+      </div>
+    </div>
+
+  </form>
+
+</div>

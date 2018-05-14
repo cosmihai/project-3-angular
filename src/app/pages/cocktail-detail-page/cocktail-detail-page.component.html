@@ -16,7 +16,9 @@
     <p>{{cocktail.preparation}}</p>
   </div>
   <div class="photo-cocktail">
-    <img [src]="cocktail.imageUrl" alt="booze">
+    <img id="item-img" [src]="cocktail.imageUrl" alt="booze">
   </div>
 </div>
+<p *ngIf="owner" (click)="onClickDelete(cocktail._id)">delete</p>
+<p *ngIf="owner">edit</p>
 <img class="bar-spoon-h" src="../../../assets/images/bar-spoon-h.png" alt="lol">

@@ -30,7 +30,6 @@ export class CocktailsListPageComponent implements OnInit {
   }
 
   onClick(ingr) {
-    console.log(ingr)
     if (ingr==='all') {
       this.selectivList = false;
     }else{

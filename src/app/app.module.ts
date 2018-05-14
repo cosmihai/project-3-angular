@@ -38,7 +38,7 @@ const routes: Routes = [
   { path: '', component: HomePageComponent, canActivate: [InitAuthGuardService]},
   { path: 'spirits', component: SpiritsPageComponent, canActivate: [InitAuthGuardService]},
   { path: 'cocktails', component: CocktailsListPageComponent, canActivate: [InitAuthGuardService]},
-  { path: 'cocktails/create', component: CocktailsCreatePageComponent},
+  { path: 'cocktails/create', component: CocktailsCreatePageComponent, canActivate: [RequireUserGuardService]},
   { path: 'cocktails/:id', component: CocktailDetailPageComponent, canActivate: [InitAuthGuardService]},
   { path: 'cocktails/:id/edit', component: CocktailEditPageComponent},
   { path: 'users', component: UsersPageComponent, canActivate: [InitAuthGuardService]},

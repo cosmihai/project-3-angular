@@ -22,11 +22,35 @@ export class CocktailService {
       .toPromise();
   }
 
+  listUserCocktail(id): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}/cocktails/users/${id}`, options)
+      .toPromise();
+  }
+
   getOne(id): Promise<any> {
     const options = {
       withCredentials: true
     };
     return this.httpClient.get(`${this.baseUrl}/cocktails/${id}`, options)
+      .toPromise();
+  }
+
+  createOne(cocktail): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.post(`${this.baseUrl}/cocktails/create`, cocktail,  options)
+      .toPromise();
+  }
+
+  deleteOne(id: string): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.delete(`${this.baseUrl}/cocktails/${id}/delete`, options)
       .toPromise();
   }
 

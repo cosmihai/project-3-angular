@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { CocktailService } from '../../services/cocktail.service';
 
 @Component({
   selector: 'app-user-detail-page',
@@ -13,12 +14,14 @@ export class UserDetailPageComponent implements OnInit {
   user: Object = {};
   idUser: string;
   currentUser: Object ={};
+  cocktails: any;
 
   constructor(
     private userService: UserService,
     private activateRoute: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private cocktailService: CocktailService
   ) { }
 
   ngOnInit() {
@@ -28,10 +31,13 @@ export class UserDetailPageComponent implements OnInit {
         .then((data) => {
           this.user = data
         })
-        this.currentUser=this.authService.getUser();
+      this.cocktailService.listUserCocktail(this.idUser)
+      .then(result => {
+        this.cocktails = result;
+      })
+      this.currentUser=this.authService.getUser();
     });
 
-    console.log(this.user)
   }
 
   onClickEditButton(id){
