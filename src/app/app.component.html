@@ -7,14 +7,14 @@
       <input type="checkbox" id="toogle"/>
 
       <div class="site-title menu">
-        <a [routerLink]="['/']"><button class="menu-button">Home</button></a>
-        <a [routerLink]="['/spirits']"><button class="menu-button">Spirits</button> </a>
-        <a [routerLink]="['/cocktails']"><button class="menu-button">Cocktails</button> </a>
-        <a [routerLink]="['/users']"><button class="menu-button">Bartenders</button> </a>
+        <a [routerLink]="['/']">Home</a>
+        <a [routerLink]="['/spirits']">Spirits </a>
+        <a [routerLink]="['/cocktails']">Cocktails </a>
+        <a [routerLink]="['/users']">Bartenders </a>
       </div>
 
     </nav>
-    <div class="sesion-botton" [ngClass]="{'is-user': user, 'is-anon': anon}">
+    <div [ngClass]="{'is-user': user, 'is-anon': anon}" class="sesion-botton">
       <div *ngIf="loading">
         <span class="username text">loading...</span>
       </div>

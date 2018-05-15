@@ -45,6 +45,13 @@ export class CocktailService {
     return this.httpClient.post(`${this.baseUrl}/cocktails/create`, cocktail,  options)
       .toPromise();
   }
+  edit(cocktail): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.put(`${this.baseUrl}/cocktails/${cocktail._id}/edit`, cocktail, options)
+      .toPromise();
+  }
 
   deleteOne(id: string): Promise<any> {
     const options = {

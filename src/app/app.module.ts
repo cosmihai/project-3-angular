@@ -40,7 +40,7 @@ const routes: Routes = [
   { path: 'cocktails', component: CocktailsListPageComponent, canActivate: [InitAuthGuardService]},
   { path: 'cocktails/create', component: CocktailsCreatePageComponent, canActivate: [RequireUserGuardService]},
   { path: 'cocktails/:id', component: CocktailDetailPageComponent, canActivate: [InitAuthGuardService]},
-  { path: 'cocktails/:id/edit', component: CocktailEditPageComponent},
+  { path: 'cocktails/:id/edit', component: CocktailEditPageComponent, canActivate: [RequireUserGuardService]},
   { path: 'users', component: UsersPageComponent, canActivate: [InitAuthGuardService]},
   { path: 'users/:id', component: UserDetailPageComponent, canActivate: [InitAuthGuardService]},
   { path: 'users/:id/edit', component: UserEditPageComponent, canActivate: [RequireUserGuardService]},

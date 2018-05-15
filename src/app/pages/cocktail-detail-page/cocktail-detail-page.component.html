@@ -1,9 +1,14 @@
+
+
 <img class="bar-spoon-h rotate" src="../../../assets/images/bar-spoon-h.png" alt="lol">
 
 <div class="cocktail-detail">
   <div class="info-cocktail">
     <h3>{{cocktail.name}}</h3>
     <p *ngIf="cocktail.isIBA"><em>IBA Cocktail</em> </p>
+    <p *ngIf="!cocktail.isIBA"><em>Made by<a [routerLink]="['/users', cocktail.owner]"> {{ownerName}}
+    </a></em></p>
+
     <p>Glass type: {{cocktail.glass}}</p>
     <p *ngIf="cocktail.category">Category: {{cocktail.category}}</p>
     <ul>
@@ -13,12 +18,13 @@
         {{ingredient.ingredient}}
       </li>
     </ul>
-    <p>{{cocktail.preparation}}</p>
+    <p>How to prepare: {{cocktail.preparation}}</p>
   </div>
   <div class="photo-cocktail">
     <img id="item-img" [src]="cocktail.imageUrl" alt="booze">
   </div>
+  <p class="menu-button" *ngIf="owner" (click)="onClickDelete(cocktail._id)">delete</p>
+  <a [routerLink]="['edit']" class="menu-button" *ngIf="owner">edit</a>
+
 </div>
-<p *ngIf="owner" (click)="onClickDelete(cocktail._id)">delete</p>
-<p *ngIf="owner">edit</p>
 <img class="bar-spoon-h" src="../../../assets/images/bar-spoon-h.png" alt="lol">

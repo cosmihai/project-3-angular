@@ -12,7 +12,7 @@ import { AuthService } from '../../services/auth.service';
 export class UserEditPageComponent implements OnInit {
 
   user: any = {};
-  idUser: string;
+  idUser: string = '';
   currentUser: any = {};
 
   constructor(
@@ -34,7 +34,6 @@ export class UserEditPageComponent implements OnInit {
           };
         })
     });
-
   }
 
   submitForm(form) {

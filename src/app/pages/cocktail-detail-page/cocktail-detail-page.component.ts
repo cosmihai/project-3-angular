@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CocktailService } from '../../services/cocktail.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-cocktail-detail-page',
@@ -12,14 +13,16 @@ export class CocktailDetailPageComponent implements OnInit {
   cocktail: any = {};
   idCocktail: String;
   owner: boolean;
-  currentUser: any;
+  ownerName: String = '';
+  currentUser:any = {};
 
 
   constructor(
     private cocktailService: CocktailService,
     private activateRoute: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -30,17 +33,24 @@ export class CocktailDetailPageComponent implements OnInit {
       this.cocktailService.getOne(this.idCocktail)
       .then((data) => {
         this.cocktail = data
-        if (this.currentUser._id === this.cocktail.owner) {
-          this.owner = true;
+        if (this.currentUser) {
+          if (this.currentUser._id === this.cocktail.owner) {
+            this.owner = true;
+          }
         }
-      })
+        this.userService.getOne(this.cocktail.owner)
+        .then((result) => {
+          this.ownerName = result.username;
+        })
+      });
     })
+
   }
 
   onClickDelete(id) {
     this.cocktailService.deleteOne(id)
       .then(() => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/users', this.currentUser._id]);
       })
       .catch((err) => {
         console.log(err)
