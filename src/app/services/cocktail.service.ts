@@ -9,7 +9,8 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class CocktailService {
 
-  private baseUrl = `${environment.apiUrl}/cocktails`;
+  private apiUrl = environment.apiUrl + '/cocktails';
+
 
 
   constructor(
@@ -21,7 +22,7 @@ export class CocktailService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/`, options)
+    return this.httpClient.get(`${this.apiUrl}/`, options)
       .toPromise();
   }
 
@@ -29,7 +30,7 @@ export class CocktailService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/users/${id}`, options)
+    return this.httpClient.get(`${this.apiUrl}/users/${id}`, options)
       .toPromise();
   }
 
@@ -37,7 +38,7 @@ export class CocktailService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/${id}`, options)
+    return this.httpClient.get(`${this.apiUrl}/${id}`, options)
       .toPromise();
   }
 
@@ -45,14 +46,14 @@ export class CocktailService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.baseUrl}/create`, cocktail,  options)
+    return this.httpClient.post(`${this.apiUrl}/create`, cocktail,  options)
       .toPromise();
   }
   edit(cocktail): Promise<any> {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.put(`${this.baseUrl}/${cocktail._id}/edit`, cocktail, options)
+    return this.httpClient.put(`${this.apiUrl}/${cocktail._id}/edit`, cocktail, options)
       .toPromise();
   }
 
@@ -60,7 +61,7 @@ export class CocktailService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.delete(`${this.baseUrl}/cocktails/${id}/delete`, options)
+    return this.httpClient.delete(`${this.apiUrl}/cocktails/${id}/delete`, options)
       .toPromise();
   }
 

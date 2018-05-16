@@ -12,7 +12,7 @@ export class AuthService {
   private user: any;
   private userChange: Subject<any> = new Subject();
 
-  private baseUrl = `${environment.apiUrl}/auth`;
+  private apiUrl = environment.apiUrl + '/auth';
 
   userChange$: Observable<any> = this.userChange.asObservable();
 
@@ -28,7 +28,7 @@ export class AuthService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/me`, options)
+    return this.httpClient.get(`${this.apiUrl}/me`, options)
       .toPromise()
       .then((user) => this.setUser(user))
       .catch((err) => {
@@ -42,7 +42,7 @@ export class AuthService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.baseUrl}/login`, user, options)
+    return this.httpClient.post(`${this.apiUrl}/login`, user, options)
       .toPromise()
       .then((data) => this.setUser(data));
   }
@@ -51,7 +51,7 @@ export class AuthService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.baseUrl}/signup`, user, options)
+    return this.httpClient.post(`${this.apiUrl}/signup`, user, options)
       .toPromise()
       .then((data) => this.setUser(data));
   }
@@ -60,7 +60,7 @@ export class AuthService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.baseUrl}/logout`, {}, options)
+    return this.httpClient.post(`${this.apiUrl}/logout`, {}, options)
       .toPromise()
       .then(() => this.setUser());
   }

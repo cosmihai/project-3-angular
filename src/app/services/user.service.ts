@@ -10,7 +10,8 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class UserService {
 
-  private baseUrl = `${environment.apiUrl}/users`;
+  private apiUrl = environment.apiUrl + '/users';
+
 
 
   constructor(
@@ -22,7 +23,7 @@ export class UserService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/`, options)
+    return this.httpClient.get(`${this.apiUrl}/`, options)
       .toPromise();
   }
 
@@ -30,7 +31,7 @@ export class UserService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/${id}`, options)
+    return this.httpClient.get(`${this.apiUrl}/${id}`, options)
       .toPromise();
   }
 
@@ -38,7 +39,7 @@ export class UserService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.put(`${this.baseUrl}/${user._id}/edit`, user, options)
+    return this.httpClient.put(`${this.apiUrl}/${user._id}/edit`, user, options)
       .toPromise();
   }
 
