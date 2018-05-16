@@ -53,11 +53,11 @@
       <input type="number" name="amount" [(ngModel)]="ingredient.amount" placeholder="amount">
       <input type="text" name="ingredient" [(ngModel)]="ingredient.ingredient" placeholder="ingredient">
       <input type="text" name="label" [(ngModel)]="ingredient.label" placeholder="a specific product">
-      <button type="button" (click)="onDeleteIngredient(i)">delete this ingredient</button>
+      <button type="button" class="menu-button" (click)="onDeleteIngredient(i)">delete this ingredient</button>
       <hr>
     </div>
     <div class="field">
-      <label for="ingredients">add extra ingredients:</label>
+      <label for="ingredients">add extra ingredients:</label><br>
       <input type="text" name="unit" [(ngModel)]="cocktailIngredient.unit" placeholder="unit">
       <input type="number" name="amount" [(ngModel)]="cocktailIngredient.amount" placeholder="amount">
       <input type="text" name="ingredient" [(ngModel)]="cocktailIngredient.ingredient" placeholder="ingredient">
