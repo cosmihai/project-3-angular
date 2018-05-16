@@ -1,8 +1,13 @@
 <h3>Bartenders list:  </h3>
-<ul>
+<ul class="user-item">
   <li *ngFor="let user of users">
-    <a [routerLink]="[user._id]">
-      {{user.username}}
-    </a>
+    <div >
+      <a [routerLink]="[user._id]">
+        {{user.username}}
+      </a>
+      <div>
+        <img class="profile-img" [src]="user.pictureUrl" alt="lol">
+      </div>
+    </div>
   </li>
 </ul>
