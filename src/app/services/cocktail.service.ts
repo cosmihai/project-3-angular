@@ -3,10 +3,13 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
 import { Router } from '@angular/router';
 
+import { environment } from '../../environments/environment';
+
+
 @Injectable()
 export class CocktailService {
 
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = `${environment.apiUrl}/cocktails`;
 
 
   constructor(
@@ -18,7 +21,7 @@ export class CocktailService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/cocktails`, options)
+    return this.httpClient.get(`${this.baseUrl}/`, options)
       .toPromise();
   }
 
@@ -26,7 +29,7 @@ export class CocktailService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/cocktails/users/${id}`, options)
+    return this.httpClient.get(`${this.baseUrl}/users/${id}`, options)
       .toPromise();
   }
 
@@ -34,7 +37,7 @@ export class CocktailService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/cocktails/${id}`, options)
+    return this.httpClient.get(`${this.baseUrl}/${id}`, options)
       .toPromise();
   }
 
@@ -42,14 +45,14 @@ export class CocktailService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.baseUrl}/cocktails/create`, cocktail,  options)
+    return this.httpClient.post(`${this.baseUrl}/create`, cocktail,  options)
       .toPromise();
   }
   edit(cocktail): Promise<any> {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.put(`${this.baseUrl}/cocktails/${cocktail._id}/edit`, cocktail, options)
+    return this.httpClient.put(`${this.baseUrl}/${cocktail._id}/edit`, cocktail, options)
       .toPromise();
   }
 

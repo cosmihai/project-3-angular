@@ -7,7 +7,7 @@ import { Component, Input,OnInit } from '@angular/core';
 })
 export class CocktailItemComponent implements OnInit {
 
-  @Input() cocktail: Object;
+  @Input() cocktail: any;
 
   constructor() { }
 

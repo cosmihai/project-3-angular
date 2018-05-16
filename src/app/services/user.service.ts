@@ -3,11 +3,14 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
 import { Router } from '@angular/router';
 
+import { environment } from '../../environments/environment';
+
+
 
 @Injectable()
 export class UserService {
 
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = `${environment.apiUrl}/users`;
 
 
   constructor(
@@ -19,7 +22,7 @@ export class UserService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/users`, options)
+    return this.httpClient.get(`${this.baseUrl}/`, options)
       .toPromise();
   }
 
@@ -27,7 +30,7 @@ export class UserService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/users/${id}`, options)
+    return this.httpClient.get(`${this.baseUrl}/${id}`, options)
       .toPromise();
   }
 
@@ -35,7 +38,7 @@ export class UserService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.put(`${this.baseUrl}/users/${user._id}/edit`, user, options)
+    return this.httpClient.put(`${this.baseUrl}/${user._id}/edit`, user, options)
       .toPromise();
   }
 

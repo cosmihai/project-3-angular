@@ -11,9 +11,9 @@ import { CocktailService } from '../../services/cocktail.service';
 })
 export class UserDetailPageComponent implements OnInit {
 
-  user: Object = {};
+  user: any = {};
   idUser: string;
-  currentUser: Object ={};
+  currentUser: any ={};
   cocktails: any;
 
   constructor(

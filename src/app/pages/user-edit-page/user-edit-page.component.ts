@@ -14,6 +14,8 @@ export class UserEditPageComponent implements OnInit {
   user: any = {};
   idUser: string = '';
   currentUser: any = {};
+  processing: boolean;
+  feedbackEnabled: boolean;
 
   constructor(
     private activateRoute: ActivatedRoute,
