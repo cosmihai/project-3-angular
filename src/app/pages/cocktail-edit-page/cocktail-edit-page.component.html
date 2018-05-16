@@ -43,27 +43,36 @@
       </div>
     </div>
 
-    <div class="field">
-      <label for="ingredients">Ingredients:</label>
-
-      <div *ngFor="let ingredient of ingredientsArray; trackBy:ingredientTrackerFunction">
-        <!-- {{ingredient | json}} -->
-        <input type="text" name="unit" [(ngModel)]="ingredient.unit" placeholder="unit">
-        <input type="number" name="amount" [(ngModel)]="ingredient.amount" placeholder="amount">
-        <input type="text" name="ingredient" [(ngModel)]="ingredient.ingredient" placeholder="ingredient">
-        <input type="text" name="label" [(ngModel)]="ingredient.label" placeholder="a specific product">
-        <hr>
-      </div>
-      <button type="button" (click)="addIngredient(cocktailIngredient.unit, cocktailIngredient.amount, cocktailIngredient.ingredient, cocktailIngredient.label)">+</button>
-    </div>
-
-    <div class="field submit">
-      <button class="menu-button" type="submit" [disabled]="processing">Submit</button>
-      <div *ngIf="feedbackEnabled && form.invalid">
-        <p class="validation">there are errors in the form, please review the fields</p>
-      </div>
-    </div>
 
   </form>
+
+  <div class="field">
+    <label for="ingredients">Ingredients:</label>
+    <div *ngFor="let ingredient of ingredientsArray; let i=index">
+      <input type="text" name="unit" [(ngModel)]="ingredient.unit" placeholder="unit">
+      <input type="number" name="amount" [(ngModel)]="ingredient.amount" placeholder="amount">
+      <input type="text" name="ingredient" [(ngModel)]="ingredient.ingredient" placeholder="ingredient">
+      <input type="text" name="label" [(ngModel)]="ingredient.label" placeholder="a specific product">
+      <button type="button" (click)="onDeleteIngredient(i)">delete this ingredient</button>
+      <hr>
+    </div>
+    <div class="field">
+      <label for="ingredients">add extra ingredients:</label>
+      <input type="text" name="unit" [(ngModel)]="cocktailIngredient.unit" placeholder="unit">
+      <input type="number" name="amount" [(ngModel)]="cocktailIngredient.amount" placeholder="amount">
+      <input type="text" name="ingredient" [(ngModel)]="cocktailIngredient.ingredient" placeholder="ingredient">
+      <input type="text" name="label" [(ngModel)]="cocktailIngredient.label" placeholder="a specific product">
+      <button type="button" (click)="addIngredient(cocktailIngredient.unit, cocktailIngredient.amount, cocktailIngredient.ingredient, cocktailIngredient.label)">+</button>
+      <p *ngIf="ingredientsArray.length">added {{ingredientsArray.length+deletedIngredients-initialNrOfIngr}} extra ingredients</p>
+    </div>
+
+  </div>
+
+  <div class="field submit">
+    <button (click)="submitForm(form)" class="menu-button" type="submit" [disabled]="processing">Submit</button>
+    <div *ngIf="feedbackEnabled && form.invalid">
+      <p class="validation">there are errors in the form, please review the fields</p>
+    </div>
+  </div>
 
 </div>

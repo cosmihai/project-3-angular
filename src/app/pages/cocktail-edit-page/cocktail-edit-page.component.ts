@@ -14,6 +14,10 @@ export class CocktailEditPageComponent implements OnInit {
   idCocktail: String = '';
   currentUser: any = {};
   ingredientsArray: Array<any> = [];
+  cocktailIngredient: any = {};
+  initialNrOfIngr: number;
+  deletedIngredients: number = 0;
+
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -33,12 +37,28 @@ export class CocktailEditPageComponent implements OnInit {
           this.router.navigate([`/`])
         };
         this.ingredientsArray = this.cocktail.ingredients;
+        this.initialNrOfIngr = this.ingredientsArray.length;
       })
     })
   }
-      ingredientTrackerFunction(index: number, ingredient: any) {
-        return ingredient._id;
-      }
+
+  addIngredient(unit, amount, ingredient, label) {
+    ingredient = ingredient.charAt(0).toUpperCase() + ingredient.slice(1);
+    this.cocktailIngredient = {
+      unit,
+      amount,
+      ingredient,
+      label
+    };
+    this.ingredientsArray.push(this.cocktailIngredient);
+    this.cocktailIngredient = {}
+  }
+
+  onDeleteIngredient(index) {
+    this.ingredientsArray.splice(index, 1);
+    this.deletedIngredients++;
+  }
+
 
   submitForm(form) {
     this.cocktailService.edit(this.cocktail)

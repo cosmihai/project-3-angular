@@ -15,7 +15,7 @@ export class CocktailsCreatePageComponent implements OnInit {
   processing = false;
   cocktail: any;
   currentUser: any ;
-  cocktailIngredient: Object;
+  cocktailIngredient: any = {};
   ingredientsArray: Array<any>;
 
   constructor(

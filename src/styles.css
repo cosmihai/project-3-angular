@@ -8,6 +8,7 @@
 fonts {
   font-family: 'Roboto', sans-serif;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Kavivanar', cursive;
 } */
 
 
@@ -46,10 +47,13 @@ p {
 }
 a {
   text-decoration: none;
+  color: rgb(39, 39, 94);
+  text-shadow: -1px 0 rgb(116, 190, 201), 0 1px rgb(116, 190, 201), 1px 0 rgb(116, 190, 201), 0 -1px rgb(116, 190, 201)
 
 }
 .site-nav a:hover {
   font-size: 110%;
+
 }
 
 
@@ -159,6 +163,35 @@ a {
 
 
 /* ---------------end navegacion--------------- */
+
+/* -------------------home page-------------------------- */
+
+#title {
+  font-family: 'Kavivanar', cursive;
+  line-height: 120%;
+  text-align: center;
+  letter-spacing: 2px;
+  color: rgb(39, 39, 94);
+  text-shadow: -1px 0 rgb(116, 190, 201), 0 1px rgb(116, 190, 201), 1px 0 rgb(116, 190, 201), 0 -1px rgb(116, 190, 201)
+
+}
+.home-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.home-page-sub-container {
+  margin-bottom: 30px;
+}
+.home-paragraf {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.home-picture {
+  width: 100%;
+}
+
+/* -------------------end of home page-------------------------- */
 .cocktail-list {
   display: flex;
   flex-direction: column;
