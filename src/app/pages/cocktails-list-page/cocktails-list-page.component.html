@@ -24,6 +24,7 @@
     <button (click)="onClick(ingredient)" class="menu-button">Search</button>
   </div>
   <hr>
+  <div *ngIf="!cocktails">Loading...</div>
 
   <div *ngIf="!selectivList" class="cocktail-list">
     <section *ngFor="let cocktail of cocktails">

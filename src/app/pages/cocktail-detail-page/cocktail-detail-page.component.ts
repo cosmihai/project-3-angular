@@ -42,7 +42,8 @@ export class CocktailDetailPageComponent implements OnInit {
         .then((result) => {
           this.ownerName = result.username;
         })
-      });
+      })
+
     })
 
   }
