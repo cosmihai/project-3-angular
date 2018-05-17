@@ -194,27 +194,9 @@ a {
 }
 
 /* -------------------end of home page-------------------------- */
-.spirit-title {
-  font-family: 'Kavivanar', cursive;
-  text-align: center;
-  color: rgb(39, 39, 94);
-  text-shadow: -1px 0 rgb(116, 190, 201), 0 1px rgb(116, 190, 201), 1px 0 rgb(116, 190, 201), 0 -1px rgb(116, 190, 201);
-}
-#spirits-list-anchor {
-  list-style: none;
-  display: inline-block;
-  margin: 0;
-  padding: 0;
 
-}
-#spirits-list-anchor li {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-}
 
-/* -------------------spirits--------------- */
-/* -------------------end spirits--------------- */
+
 .cocktail-list {
   display: flex;
   flex-direction: column;
@@ -226,17 +208,17 @@ a {
   border: 1px solid rgba(144, 142, 142, 0.4);
   border-radius: 5px;
   background: linear-gradient(to top, rgb(255, 231, 231), rgb(255, 215, 229));
-  margin: 0px 5px 10px 5px;
+  margin: 5px;
   padding: 10px;
-  width: 200px;
-  height: 250px;
+  width: 230px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center
 }
 #item-img {
-  width: 100px;
+  width: 150px;
 }
 .cocktail-detail {
   border: 1px solid rgba(144, 142, 142, 0.4);
@@ -271,6 +253,8 @@ a {
   list-style: none;
 }
 .user-item li {
+  width: 230px;
+  height: 300px;
   margin: 5px;
   padding: 0 5px;
   border: 1px solid rgba(144, 142, 142, 0.6);
@@ -387,7 +371,7 @@ form .field.has-error input {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
   }
   .cocktail-detail {
   display: flex;
