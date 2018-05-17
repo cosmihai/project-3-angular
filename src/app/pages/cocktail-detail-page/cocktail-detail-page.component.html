@@ -10,7 +10,9 @@
     </a></em></p>
 
     <p>Glass type: {{cocktail.glass}}</p>
+    <p>Garnish: {{cocktail.garnish}}</p>
     <p *ngIf="cocktail.category">Category: {{cocktail.category}}</p>
+    <p>Ingredients:</p>
     <ul>
       <li *ngFor="let ingredient of cocktail.ingredients">
         {{ingredient.amount}}
