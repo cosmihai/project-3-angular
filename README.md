@@ -1,27 +1,95 @@
-# FrontEnd
+USER STORIES:
+	- see home-page
+	- see all spirits (spirits-page)
+	- see one spirit (spirit-detail-page)
+	- see all cocktails (cocktails-page)
+		- search cocktails by ingridient
+	- see one cocktail (cocktail-details page)
+	- see all users(users-page)
+	- see one user(user-detail-page)
+	- signup
+	- login
+	- logout
+	- edit profile
+	- create cocktail
+	- edit cocktail
+	- delete cocktail
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
-## Development server
+PAGES:
+	- /  				pages/home-page
+	- /cocktails 			pages/cocktails-list-page 
+	- /cocktails?ingredient		pages/cocktails-list-page
+	- /cocktails/create		pages/cocktails-create-page
+	- /cocktails/cocktail:id	pages/cocktail-detail-page
+	- /cocktails/cocktail:id/edit	pages/cocktail-edit-page
+	- /users			pages/users-page
+	- /users/user:id		pages/user-detail-page
+	- /users/user:id/edit		pages/user-edit-page
+	- /signup			pages/signup-page
+	- /login			pages/login-page
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+COMPONENTS:
+	 - components/cocktail-item
+		· @Input - cocktail(object)
+			 - showButtons(boolean)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+		· @Output - delete
 
-## Build
+SERVICES:
+	- services/cocktail
+			·listAll()
+			·listByIngredient(ingredient)
+			·getOne(id)
+			·deleteOne(id)
+			.createOne(cocktail)
+			·editCocktail(cocktail)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+	- services/user
+			·listAll()
+			·getOne(id)
 
-## Running unit tests
+	- services/auth
+			·login(user)
+			·signup(user)
+			·logout()
+			·me()
+			·editUser(user)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+MODELS:
+	- cocktail 
+		·name: String, required
+		·glass: String, required
+		·category: String
+		·ingredients: Array [{unit: String, amount: String, ingredient:String}]
+		·garnish: String
+		·preparation: String, required
+		·isIBA: boolean
+		·imageUrl: String
+		.owner: ObjectId
+	- user
+		·username: String, required
+		·password: String, required
 
-## Running end-to-end tests
+BACKEND ROUTES:
+	auth:
+		·POST /auth/login
+		·POST /auth/signup
+		·POST /auth/logout
+		·GET /auth/me
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+	cocktails:
+		·POST /cocktails
+		·GET /cocktails
+		·GET /cocktails/?ingredient
+		·PUT /cocktails/:id
+		·DELETE /cocktails/:id
+		·GET /cocktails/:id
 
-## Further help
+	users: 
+		·GET /users
+		·GET /users/:id
+	
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
