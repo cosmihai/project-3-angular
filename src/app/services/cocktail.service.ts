@@ -61,7 +61,7 @@ export class CocktailService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.delete(`${this.apiUrl}/cocktails/${id}/delete`, options)
+    return this.httpClient.delete(`${this.apiUrl}/${id}/delete`, options)
       .toPromise();
   }
 
