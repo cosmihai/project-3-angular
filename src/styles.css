@@ -36,26 +36,20 @@ body {
   line-height: 147%;
 }
 
-h1 {}
-
-h2 {}
-
-h3 {}
-
 p {
   margin: 0;
 }
+
 a {
   text-decoration: none;
   color: rgb(39, 39, 94);
   text-shadow: -1px 0 rgb(116, 190, 201), 0 1px rgb(116, 190, 201), 1px 0 rgb(116, 190, 201), 0 -1px rgb(116, 190, 201)
-
 }
+
 .site-nav a:hover {
   font-size: 110%;
 
 }
-
 
 
 /* ---- layout ---- */
@@ -295,7 +289,7 @@ a {
   opacity: .8;
   display: flex;
   flex-direction: column;
-  align-content: center
+  align-items: center
 }
 
 .image-centered{
@@ -304,13 +298,13 @@ a {
   margin: 0 auto;
 }
 
-form.is-processing {
+/* form.is-processing {
 	opacity: 0.5;
-}
+} */
 
-form .field {
+/* form.field {
   margin-bottom: 20px;
-}
+} */
 
 form label {
   display: block;
@@ -322,6 +316,7 @@ form input {
   padding: 5px;
   font-size: 16px;
   margin-bottom: 5px;
+  max-width: 200px;
 }
 
 form .submit {

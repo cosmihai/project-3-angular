@@ -33,7 +33,7 @@ export class CocktailsListPageComponent implements OnInit {
     if (ingr==='all') {
       this.selectivList = false;
     }else{
-      this.selectivCocktails =  [];
+      // this.selectivCocktails =  [];
       for(let i=0; i<this.cocktails.length; i++){
         var cocktail = this.cocktails[i];
         for(let j=0; j<cocktail.ingredients.length; j++){
