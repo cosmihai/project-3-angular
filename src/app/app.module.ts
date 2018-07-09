@@ -19,6 +19,7 @@ import { UserDetailPageComponent } from './pages/user-detail-page/user-detail-pa
 import { UserEditPageComponent } from './pages/user-edit-page/user-edit-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { NotFoundComponent } from './pages/not-found/not-found/not-found.component';
 
 // ---COMPONENTS-------------------------------------
 import { CocktailItemComponent } from './components/cocktail-item/cocktail-item.component';
@@ -36,7 +37,7 @@ import { InitAuthGuardService } from './guards/init-auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, canActivate: [InitAuthGuardService]},
-  { path: 'spirits', component: SpiritsPageComponent, canActivate: [InitAuthGuardService]},
+  // { path: 'spirits', component: SpiritsPageComponent, canActivate: [InitAuthGuardService]},
   { path: 'cocktails', component: CocktailsListPageComponent, canActivate: [InitAuthGuardService]},
   { path: 'cocktails/create', component: CocktailsCreatePageComponent, canActivate: [RequireUserGuardService]},
   { path: 'cocktails/:id', component: CocktailDetailPageComponent, canActivate: [InitAuthGuardService]},
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: 'users/:id/edit', component: UserEditPageComponent, canActivate: [RequireUserGuardService]},
   { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuardService]},
   { path: 'login', component: LoginPageComponent, canActivate: [RequireAnonGuardService]},
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
@@ -63,7 +65,8 @@ const routes: Routes = [
     UserEditPageComponent,
     SignupPageComponent,
     LoginPageComponent,
-    CocktailItemComponent
+    CocktailItemComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

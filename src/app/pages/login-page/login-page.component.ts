@@ -34,7 +34,7 @@ export class LoginPageComponent implements OnInit {
         password: this.password
       }
       this.authService.login(user)
-        .then((result) => {
+        .then(() => {
           this.router.navigate(['/']);
         })
         .catch((err) => {

@@ -42,7 +42,6 @@ export class SignupPageComponent implements OnInit {
           this.processing = false;
           this.feedbackEnabled = false;
         });
-
     }
   }
 

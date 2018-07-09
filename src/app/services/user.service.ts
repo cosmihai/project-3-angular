@@ -1,22 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
-import { Router } from '@angular/router';
 
 import { environment } from '../../environments/environment';
-
-
 
 @Injectable()
 export class UserService {
 
   private apiUrl = environment.apiUrl + '/users';
 
-
-
   constructor(
     private httpClient: HttpClient,
-    private router: Router
   ) { }
 
   listAll(): Promise<any> {

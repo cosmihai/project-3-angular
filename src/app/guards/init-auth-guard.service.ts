@@ -10,7 +10,7 @@ export class InitAuthGuardService implements CanActivate {
 
   canActivate(): Promise<boolean> {
     return this.authService.me()
-      .then((user) => {
+      .then(() => {
         return true;
       })
       .catch((error) => {

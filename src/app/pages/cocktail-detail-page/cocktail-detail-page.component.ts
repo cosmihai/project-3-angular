@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CocktailService } from '../../services/cocktail.service';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { CocktailService } from '../../services/cocktail.service';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
 
@@ -42,20 +43,18 @@ export class CocktailDetailPageComponent implements OnInit {
         .then((result) => {
           this.ownerName = result.username;
         })
-      })
-
-    })
-
+      });
+    });
   }
 
   onClickDelete(id) {
     this.cocktailService.deleteOne(id)
-      .then(() => {
-        this.router.navigate(['/users', this.currentUser._id]);
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    .then(() => {
+      this.router.navigate(['/users', this.currentUser._id]);
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   }
 
 }
