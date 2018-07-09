@@ -1,7 +1,5 @@
 USER STORIES:
 	- see home-page
-	- see all spirits (spirits-page)
-	- see one spirit (spirit-detail-page)
 	- see all cocktails (cocktails-page)
 	- search cocktails by ingridient
 	- see one cocktail (cocktail-details page)
