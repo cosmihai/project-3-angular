@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { CocktailService } from '../../services/cocktail.service';
+
+import { User } from '../../interfaces/User';
+
 
 @Component({
   selector: 'app-user-detail-page',
@@ -11,9 +15,16 @@ import { CocktailService } from '../../services/cocktail.service';
 })
 export class UserDetailPageComponent implements OnInit {
 
-  user: any = {};
+  user: User = {
+    _id: '',
+    username: '',
+    password: '',
+    pictureUrl: '',
+    firstName: '',
+    lastName: ''
+  };
   idUser: string;
-  currentUser: any ={};
+  currentUser: User;
   cocktails: any;
 
   constructor(

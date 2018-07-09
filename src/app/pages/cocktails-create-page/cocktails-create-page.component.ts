@@ -1,20 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { CocktailService } from '../../services/cocktail.service';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+
+import { User } from '../../interfaces/User';
 
 @Component({
   selector: 'app-cocktails-create-page',
   templateUrl: './cocktails-create-page.component.html',
   styleUrls: ['./cocktails-create-page.component.css']
 })
+
 export class CocktailsCreatePageComponent implements OnInit {
 
   feedbackEnabled = false;
   error = null;
   processing = false;
-  cocktail: any;
-  currentUser: any ;
+  cocktail: any = {};
+  currentUser: User ;
   cocktailIngredient: any = {};
   ingredientsArray: Array<any>;
 
@@ -27,10 +31,10 @@ export class CocktailsCreatePageComponent implements OnInit {
   ngOnInit() {
 
     this.currentUser = this.authService.getUser();
-    this.cocktail = {};
     this.cocktailIngredient = {};
     this.ingredientsArray = [];
   }
+
   addIngredient(unit, amount, ingredient, label) {
     ingredient = ingredient.charAt(0).toUpperCase() + ingredient.slice(1);
     this.cocktailIngredient = {
@@ -51,9 +55,11 @@ export class CocktailsCreatePageComponent implements OnInit {
       this.processing = true;
 
       this.cocktail = {
+        _id: '',
         name: this.cocktail.name,
         glass: this.cocktail.glass,
         category: this.cocktail.category,
+        isIBA: false,
         imageUrl: this.cocktail.imageUrl,
         garnish: this.cocktail.garnish,
         preparation: this.cocktail.preparation,
@@ -62,10 +68,10 @@ export class CocktailsCreatePageComponent implements OnInit {
       }
 
       this.cocktailService.createOne(this.cocktail)
-        .then((result) => {
+        .then(() => {
           this.router.navigate([`/users/${this.currentUser._id}`]);
         })
-      this.cocktail = {}
+      this.cocktail = {};
     }
   }
 

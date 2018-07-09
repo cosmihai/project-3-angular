@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CocktailService } from '../../services/cocktail.service';
 import { Router } from '@angular/router';
+
+import { CocktailService } from '../../services/cocktail.service';
+
 
 @Component({
   selector: 'app-cocktails-list-page',

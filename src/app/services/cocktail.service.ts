@@ -19,7 +19,7 @@ export class CocktailService {
       withCredentials: true
     };
     return this.httpClient.get(`${this.apiUrl}/`, options)
-      .toPromise();
+    .toPromise();
   }
 
   listUserCocktail(id): Promise<any> {
@@ -27,7 +27,7 @@ export class CocktailService {
       withCredentials: true
     };
     return this.httpClient.get(`${this.apiUrl}/users/${id}`, options)
-      .toPromise();
+    .toPromise();
   }
 
   getOne(id): Promise<any> {
@@ -35,7 +35,7 @@ export class CocktailService {
       withCredentials: true
     };
     return this.httpClient.get(`${this.apiUrl}/${id}`, options)
-      .toPromise();
+    .toPromise();
   }
 
   createOne(cocktail): Promise<any> {
@@ -43,14 +43,14 @@ export class CocktailService {
       withCredentials: true
     };
     return this.httpClient.post(`${this.apiUrl}/create`, cocktail,  options)
-      .toPromise();
+    .toPromise();
   }
   edit(cocktail): Promise<any> {
     const options = {
       withCredentials: true
     };
     return this.httpClient.put(`${this.apiUrl}/${cocktail._id}/edit`, cocktail, options)
-      .toPromise();
+    .toPromise();
   }
 
   deleteOne(id: string): Promise<any> {
@@ -58,7 +58,6 @@ export class CocktailService {
       withCredentials: true
     };
     return this.httpClient.delete(`${this.apiUrl}/${id}/delete`, options)
-      .toPromise();
+    .toPromise();
   }
-
 }

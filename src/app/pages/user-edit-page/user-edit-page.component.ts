@@ -1,8 +1,12 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
+
+import { User } from '../../interfaces/User';
+
 
 @Component({
   selector: 'app-user-edit-page',
@@ -11,9 +15,16 @@ import { AuthService } from '../../services/auth.service';
 })
 export class UserEditPageComponent implements OnInit {
 
-  user: any = {};
+  user: User = {
+    _id: '',
+    username: '',
+    password: '',
+    pictureUrl: '',
+    firstName: '',
+    lastName: ''
+  };
   idUser: string = '';
-  currentUser: any = {};
+  currentUser: User;
   processing: boolean;
   feedbackEnabled: boolean;
 
@@ -38,7 +49,7 @@ export class UserEditPageComponent implements OnInit {
     });
   }
 
-  submitForm(form) {
+  submitForm() {
     this.userService.edit(this.user)
       .then((data) => {
         this.user = data;

@@ -1,18 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { CocktailService } from '../../services/cocktail.service';
 import { AuthService } from '../../services/auth.service';
+
+import { Cocktail } from '../../interfaces/Cocktail';
+import { User } from '../../interfaces/User';
 
 @Component({
   selector: 'app-cocktail-edit-page',
   templateUrl: './cocktail-edit-page.component.html',
   styleUrls: ['./cocktail-edit-page.component.css']
 })
+
 export class CocktailEditPageComponent implements OnInit {
 
-  cocktail: any = {};
+  cocktail: Cocktail;
   idCocktail: String = '';
-  currentUser: any = {};
+  currentUser: User;
   ingredientsArray: Array<any> = [];
   cocktailIngredient: any = {};
   initialNrOfIngr: number;
@@ -60,7 +65,7 @@ export class CocktailEditPageComponent implements OnInit {
   }
 
 
-  submitForm(form) {
+  submitForm() {
     this.cocktailService.edit(this.cocktail)
       .then((data) => {
         this.cocktail = data;

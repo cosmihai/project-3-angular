@@ -1,5 +1,7 @@
 
-
+<div *ngIf="!cocktail.isIBA">
+  <a [routerLink]="['/users', cocktail.owner]">Back</a>
+</div>
 <img class="bar-spoon-h rotate" src="../../../assets/images/bar-spoon-h.png" alt="lol">
 
 <div class="cocktail-detail">

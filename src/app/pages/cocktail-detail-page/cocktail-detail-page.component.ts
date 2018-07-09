@@ -5,17 +5,39 @@ import { CocktailService } from '../../services/cocktail.service';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
 
+import { Cocktail } from '../../interfaces/Cocktail';
+import { User } from '../../interfaces/User';
+
 @Component({
   selector: 'app-cocktail-detail-page',
   templateUrl: './cocktail-detail-page.component.html',
   styleUrls: ['./cocktail-detail-page.component.css']
 })
+
 export class CocktailDetailPageComponent implements OnInit {
-  cocktail: any = {};
+  cocktail: Cocktail = {
+    _id: '',
+    name: '',
+    glass: '',
+    category: '',
+    ingredients: [],
+    garnish: '',
+    preparation: '',
+    isIBA: false,
+    imageUrl: '',
+    owner: ''
+  }
   idCocktail: String;
   owner: boolean;
   ownerName: String = '';
-  currentUser:any = {};
+  currentUser: User = {
+    _id: '',
+    username: '',
+    password: '',
+    pictureUrl: '',
+    firstName: '',
+    lastName: ''
+  };
 
 
   constructor(
@@ -48,13 +70,15 @@ export class CocktailDetailPageComponent implements OnInit {
   }
 
   onClickDelete(id) {
-    this.cocktailService.deleteOne(id)
-    .then(() => {
-      this.router.navigate(['/users', this.currentUser._id]);
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-  }
+    if(confirm("Delete this cocktail???")){
 
+      this.cocktailService.deleteOne(id)
+      .then(() => {
+        this.router.navigate(['/users', this.currentUser._id]);
+      })
+      .catch((err) => {
+        console.log(err)
+      });
+    }
+  }
 }

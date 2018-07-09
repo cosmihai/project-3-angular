@@ -1,7 +1,7 @@
 <div class="user-box" *ngIf="cocktail">
   <h4>Create your cocktail</h4>
   <hr>
-  <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+  <form (ngSubmit)="submitForm()" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
 
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
       <label for="name">Name:</label>

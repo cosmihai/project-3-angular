@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './signup-page.component.html',
   styleUrls: ['./signup-page.component.css']
 })
+
 export class SignupPageComponent implements OnInit {
 
   feedbackEnabled = false;
@@ -34,7 +36,7 @@ export class SignupPageComponent implements OnInit {
         password: this.password
       }
       this.authService.signup(user)
-        .then((result) => {
+        .then(() => {
           this.router.navigate(['/']);
         })
         .catch((err) => {
